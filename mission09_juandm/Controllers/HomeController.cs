@@ -19,7 +19,7 @@ namespace mission09_juandm.Controllers
         }
         public IActionResult Index(int pageNum = 1)
         {
-            int pageSize = 5;
+            int pageSize = 10;
 
             var x = new BooksViewModel
             {
