@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using mission09_juandm.Models;
+using mission09_juandm.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,12 +21,22 @@ namespace mission09_juandm.Controllers
         {
             int pageSize = 5;
 
+            var x = new BooksViewModel
+            {
+                Books = repo.Books
+                .OrderBy(p => p.Title)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize),
 
-            var blah = repo.Books
-                .OrderBy(p=>p.Title)
-                .Skip(pageNum * pageSize)
-                .Take(pageSize);
-            return View(blah);
+                PageInfo = new PageInfo
+                {
+                    TotalNumBooks = repo.Books.Count(),
+                    BooksPerPage = pageSize,
+                    CurrentPage = pageNum
+                }
+            };
+
+            return View(x);
         } 
 
         public IActionResult Privacy()

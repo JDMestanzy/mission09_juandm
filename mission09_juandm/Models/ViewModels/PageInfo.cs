@@ -11,6 +11,6 @@ namespace mission09_juandm.Models.ViewModels
         public int BooksPerPage { get; set; }
         public int CurrentPage { get; set; }
         //figure out how many pages we need
-        public int TotalPages => TotalNumBooks/BooksPerPage
+        public int TotalPages =>(int)Math.Ceiling((double) TotalNumBooks / BooksPerPage);
     }
 }
