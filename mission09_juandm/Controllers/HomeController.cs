@@ -17,20 +17,24 @@ namespace mission09_juandm.Controllers
         {
             repo = temp;
         }
-        public IActionResult Index(int pageNum = 1)
+        public IActionResult Index(string bookcategory,int pageNum = 1)
         {
             int pageSize = 10;
 
             var x = new BooksViewModel
             {
                 Books = repo.Books
+                .Where(b => b.Category == bookcategory || bookcategory == null) 
                 .OrderBy(p => p.Title)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
                 PageInfo = new PageInfo
                 {
-                    TotalNumBooks = repo.Books.Count(),
+                    TotalNumBooks = 
+                        (bookcategory == null 
+                        ? repo.Books.Count()
+                        : repo.Books.Where(x=> x.Category ==bookcategory).Count()),
                     BooksPerPage = pageSize,
                     CurrentPage = pageNum
                 }

@@ -89,3 +89,49 @@ body {
     white-space: nowrap;
     line-height: 60px; /* Vertically center the text there */
 }
+.btn-effect {
+    display: inline-block;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+    .btn-effect:hover {
+        background-color: #f7f7f7;
+        color: #333;
+    }
+
+    .btn-effect:active {
+        transform: translateY(2px);
+    }
+
+    .btn-effect.btn-primary {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .btn-effect.btn-outline-secondary {
+        background-color: transparent;
+        color: #007bff;
+        border: 2px solid #007bff;
+    }
+
+    .btn-effect.gradient {
+        background-color: #007bff;
+        background-image: linear-gradient(to bottom, #007bff, #0056b3);
+        color: #fff;
+    }
+
+        .btn-effect.gradient:hover {
+            background-color: #0056b3;
+            background-image: linear-gradient(to bottom, #0056b3, #007bff);
+        }
+
+        .btn-effect.gradient:active {
+            transform: translateY(2px);
+        }
+
