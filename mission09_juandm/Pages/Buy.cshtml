@@ -21,7 +21,9 @@
 <body>
     <div class="container mt-4">
         <h2 class="text-center mb-4">Your Basket</h2>
-        <table class="table table-bordered table-striped">
+        <!-- made the table in like night mode using table-dark and a hovering interaction so it looks cool, 
+            i got this from the get bootstrap docs :) -->
+        <table class="table table-bordered table-striped table-dark table-hover">
             <thead>
                 <tr>
                     <th>Item</th>
@@ -49,7 +51,10 @@
             </tfoot>
         </table>
         <div class="text-center">
-            <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Browsing</a>
+            <!-- For the continue browsing button i decided to include a block level button
+            that span the full width! using that class, i got this from the get bootstrap docs :) -->
+
+            <a class="btn btn-secondary btn-lg btn-block" href="@Model.ReturnUrl">Continue Browsing</a>
         </div>
     </div>
 </body>

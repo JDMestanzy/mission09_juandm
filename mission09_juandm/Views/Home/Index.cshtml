@@ -4,14 +4,20 @@
 }
 @model BooksViewModel
 
-
-
-<div class="text-center">
-    <h1 class="display-4">Welcome to the Bookstore</h1>
+<!-- added a jumbotron style header so it looks cool and catches attention,
+            i got this from the get bootstrap docs :) -->
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to our Bookstore!</h1>
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <hr class="my-4">
+    <p>I created it using the jumbotron class in the boostrap documentation. Click the button below to check your cart :)</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="/Buy" role="button">My Cart</a>
+    </p>
 </div>
 @foreach (Books b in Model.Books)
 {
-   <partial name="BookSummary" model="b"/>
+    <partial name="BookSummary" model="b" />
 }
 
 
