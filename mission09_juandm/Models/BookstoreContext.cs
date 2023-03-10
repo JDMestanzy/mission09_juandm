@@ -20,6 +20,7 @@ namespace mission09_juandm.Models
         }
 
         public virtual DbSet<Books> Books { get; set; }
+        public DbSet<Purchase> Purchases { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

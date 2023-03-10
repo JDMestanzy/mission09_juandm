@@ -38,8 +38,18 @@
                     <tr>
                         <td>@i.Book.Title</td>
                         <td>@i.Quantity</td>
-                        <td>$25</td>
-                        <td>@(i.Quantity * 25)</td>
+                        <td>$25.00</td>
+                        <td>@((i.Quantity * 25).ToString("c"))</td>
+
+                        <td class="text-center">
+                            <form method="post" asp-page-handler="Remove">
+                                <input type="hidden" name="bookid" value="@i.Book.BookId" />
+                                <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    <i class="fas fa-trash"></i> Remove
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                 }
             </tbody>
@@ -52,9 +62,11 @@
         </table>
         <div class="text-center">
             <!-- For the continue browsing button i decided to include a block level button
-            that span the full width! using that class, i got this from the get bootstrap docs :) -->
+    that span the full width! using that class, i got this from the get bootstrap docs :) -->
 
             <a class="btn btn-secondary btn-lg btn-block" href="@Model.ReturnUrl">Continue Browsing</a>
+            <br />
+            <a class="btn btn-primary btn-lg btn-block" asp-action="Checkout" asp-controller="Purchase">Checkout!</a>
         </div>
     </div>
 </body>

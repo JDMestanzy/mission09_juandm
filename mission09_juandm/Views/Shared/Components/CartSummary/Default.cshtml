@@ -1,0 +1,15 @@
+﻿
+@model Basket
+<div class="">
+    @if (Model.Items.Count() > 0)
+    {
+        <small class="navbar-text">
+            <b>Your cart:</b>
+            @Model.Items.Sum(x => x.Quantity) item(s)
+            @Model.CalculateTotal().ToString("c")
+        </small>
+    }
+    <a lass="btn btn-primary btn-lg" href="/Buy" role="button">
+        <i class="fa fa-shopping-cart"></i>
+    </a>
+</div>
